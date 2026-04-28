@@ -7,12 +7,7 @@
 
 import SwiftUI
 
-struct PokemonInfo: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-#Preview {
-    PokemonInfo()
+struct PokemonInfo: Identifiable{
+    let id = UUID()
+    var name: String
 }
