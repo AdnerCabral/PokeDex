@@ -27,8 +27,11 @@ struct ContentView: View {
                         }
                     )
                 Spacer()
-            }.padding().padding(.top, 30)
+            }
+            .padding().padding(.top, 30)
         }
+        .background(.gray)
+        .frame(height: 300)
     }
 }
 
