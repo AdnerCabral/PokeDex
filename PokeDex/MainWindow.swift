@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             HStack {
-                TextField("Enter Pokèmon Dex Num", text: $text)
+                TextField("   Enter Pokèmon Dex Num", text: $text)
                     .padding(.horizontal, 40)
                     .background(Color(#colorLiteral(red: 0.9294475317, green: 0.9239223003, blue: 0.9336946607, alpha: 1)))
                     .clipped()
@@ -29,9 +29,13 @@ struct ContentView: View {
                 Spacer()
             }
             .padding().padding(.top, 30)
+            //Image
+            //Basic Info
+            //Dex entry
+            //back and next button
         }
         .background(.gray)
-        .frame(height: 300)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
     }
 }
 
