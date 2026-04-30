@@ -8,7 +8,7 @@ import SwiftUI
 
 struct PokemonDisplay: View {
     
-    var id: Int
+    var dexid: Int
     var name: String
     var height: Int
     var weight: Int
@@ -21,12 +21,48 @@ struct PokemonDisplay: View {
     var species: [MTLType] */
     
     var body: some View {
-        HStack{
-            
+        
+            ZStack{
+                Color(.darkGray)
+                    .ignoresSafeArea()
+                VStack(alignment: .center, spacing: 40)
+                {
+                    
+                    HStack(alignment: .center)
+                            {
+                                Spacer()
+                        
+                                Text(name)
+                                Spacer()
+                                Rectangle()
+                                    .frame(width: 3, height: 70)
+                                Spacer()
+                                Text(String(dexid))
+                                Spacer()
+                            }
+                            .frame(width: 300)
+                            .border(.black)
+                    
+                    .frame(width: 300, height: 20)
+                    Rectangle()
+                        .frame(width: 290, height: 6)
+                ZStack{
+                    Color(.lightGray)
+                        .ignoresSafeArea()
+                    Text("Image Go Here")
+                }
+                .frame(width: 280, height: 280)
+                .background()
+                .border(.black)
+            }
         }
+        .frame(width: 300, height: 500)
+        .background()
+        .border(.black)
+        
     }
 }
 
 #Preview {
-    PokemonDisplay(id: 67, name: "67", height: 67, weight: 67)
+    PokemonDisplay(dexid: 0, name: "Pikachew", height: 67, weight: 67)
 }
