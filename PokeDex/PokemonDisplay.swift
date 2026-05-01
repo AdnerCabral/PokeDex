@@ -28,20 +28,23 @@ struct PokemonDisplay: View {
                 VStack(alignment: .center, spacing: 40)
                 {
                     
-                    HStack(alignment: .center)
+                    
+                    VStack(alignment: .leading)
                             {
                                 Spacer()
                         
                                 Text(name)
-                                Spacer()
-                                Rectangle()
-                                    .frame(width: 3, height: 70)
-                                Spacer()
-                                Text(String(dexid))
+                                    //.minimumScaleFactor(CGFloat: 30)
+                                    .fontWidth(.expanded)
+                                Text("No. #\(dexid)")
+                                    .font(.subheadline)
+                                    .fontWidth(.expanded)
                                 Spacer()
                             }
-                            .frame(width: 300)
+                            .frame(width: 340)
                             .border(.black)
+                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 30))
+                            
                     
                     .frame(width: 300, height: 20)
                     Rectangle()
@@ -56,7 +59,7 @@ struct PokemonDisplay: View {
                 .border(.black)
             }
         }
-        .frame(width: 300, height: 500)
+        .frame(width: 350, height: 500)
         .background()
         .border(.black)
         
@@ -64,5 +67,5 @@ struct PokemonDisplay: View {
 }
 
 #Preview {
-    PokemonDisplay(dexid: 0, name: "Pikachew", height: 67, weight: 67)
+    PokemonDisplay(dexid: 67, name: "Galarian Darmanitan (Zen Form)", height: 67, weight: 67)
 }
