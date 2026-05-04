@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+struct PokeResponse: Codable{
+    var results: [PokemonInfo]
+}
+
 struct PokemonInfo: Identifiable, Codable {
     var id: Int
     var name: String
