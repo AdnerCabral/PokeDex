@@ -22,15 +22,14 @@ struct PokemonDisplay: View {
     
     var body: some View {
         
-            ZStack{
-                Color(.darkGray)
-                    .ignoresSafeArea()
-                VStack(alignment: .center, spacing: 20)
+           // ZStack{
+                
+                VStack(alignment: .center)
                 {
-                    
+                    Spacer()
+                        .frame(width: 290, height: 6)
                     VStack(alignment: .center)
                             {
-                                Spacer()
                                 Text(name)
                                     .font(.system(size: 40))
                                     
@@ -40,31 +39,45 @@ struct PokemonDisplay: View {
                                 Text("No. #\(dexid)")
                                     .font(.system(size: 30))
                                     .fontWidth(.expanded)
-                                Spacer()
                             }
-                            .frame(width: 330, height: 40)
-                Spacer()
+                    Spacer()
+                        .frame(width: 290, height: 6)
                 Rectangle()
                     .frame(width: 290, height: 6)
-                Spacer()
+                    
+                Text("Type Go Here")
+                    
                 Rectangle()
                         .frame(width: 290, height: 6)
+                    
                 ZStack
                     {
                     Color(.lightGray)
                         .ignoresSafeArea()
                     Text("Image Go Here")
                     }
-                    .frame(width: 280, height: 280)
+                    .frame(width: 350, height: 350)
                     .background()
                     .border(.black)
                     
+                    Rectangle()
+                        .frame(width: 290, height: 6)
+                    HStack{
+                        Text("Wieght: Go Here")
+                        Spacer()
+                            .frame(width:25)
+                        Text("Height: Go Here")
+                    }
+                    Rectangle()
+                            .frame(width: 290, height: 6)
+                    Spacer()
+
             }
-                .frame(width: 1, height: 1)
-        }
-        .frame(width: 350, height: 550)
-        .background()
-        .border(.black)
+                .frame(width: .infinity, height: .infinity)
+//        }
+//        .frame(width: 350, height: 800)
+        .background(Color(.darkGray))
+//        .border(.black)
         
     }
 }
