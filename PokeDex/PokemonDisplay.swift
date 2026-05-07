@@ -7,6 +7,7 @@
 import SwiftUI
 
 struct PokemonDisplay: View {
+    @Environment(DataManager.self)private var data
     
     var dexid: Int
     var name: String
