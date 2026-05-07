@@ -12,6 +12,16 @@ struct PokemonDisplay: View {
     var name: String
     var height: Int
     var weight: Int
+//    enum PokemonType {
+//        case fire
+//        case water
+//        case air
+//        case ground
+//        case rock
+//        
+//    }
+//    var firstType: PokemonType
+//    var secondType: PokemonType
   /*   var sprite: [MTLType]
     var forms: [MTLType]
     var abilities: [MTLType]
@@ -26,6 +36,21 @@ struct PokemonDisplay: View {
                 
                 VStack(alignment: .center)
                 {
+                    HStack{
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 25)
+                                .fill( Color(red: 0.2, green: 0.2, blue: .2))
+                                .frame(width: 200, height: 100)
+                        }
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 25)
+                                .fill( Color(red: 155/255, green: 100/255, blue: 200/255))
+                                .frame(width: 200, height: 100)
+                        }
+                        
+                    }
+                    
+                    
                     Spacer()
                         .frame(width: 290, height: 6)
                     VStack(alignment: .center)
@@ -42,13 +67,7 @@ struct PokemonDisplay: View {
                             }
                     Spacer()
                         .frame(width: 290, height: 6)
-                Rectangle()
-                    .frame(width: 290, height: 6)
-                    
-                Text("Type Go Here")
-                    
-                Rectangle()
-                        .frame(width: 290, height: 6)
+
                     
                 ZStack
                     {
@@ -60,6 +79,27 @@ struct PokemonDisplay: View {
                     .background()
                     .border(.black)
                     
+                    Rectangle()
+                        .frame(width: 290, height: 6)
+                        
+                    Text("Type Go Here")
+                        
+                    
+                    Rectangle()
+                        .frame(width: 290, height: 6)
+                    Text("Abilties")
+                    HStack{
+                        Text("67")
+                        Spacer()
+                            .frame(width:25)
+                        Text("67")
+                    }
+                    HStack{
+                        Text("67")
+                        Spacer()
+                            .frame(width:25)
+                        Text("67")
+                    }
                     Rectangle()
                         .frame(width: 290, height: 6)
                     HStack{
@@ -84,5 +124,5 @@ struct PokemonDisplay: View {
 
 #Preview {
     //PokemonDisplay(dexid: 67, name: "Galarian Darmanitan (Zen Form)", height: 67, weight: 67)
-    PokemonDisplay(dexid: 67, name: "Mew", height: 67, weight: 67)
+    PokemonDisplay(dexid: 151, name: "Mew", height: 67, weight: 67)
 }
