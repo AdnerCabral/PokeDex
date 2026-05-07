@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct PokemonDisplay: View {
-    @Environment(DataManager.self)private var data
+    //@Environment(DataManager.self)private var data
     
     var dexid: Int
     var name: String
@@ -40,13 +40,29 @@ struct PokemonDisplay: View {
                     HStack{
                         ZStack{
                             RoundedRectangle(cornerRadius: 25)
-                                .fill( Color(red: 0.2, green: 0.2, blue: .2))
+                                .fill( Color(red: 100/255, green: 170/255, blue: 216/255))
                                 .frame(width: 200, height: 100)
+                            RoundedRectangle(cornerRadius: 25)
+                                .fill( Color(red: 173/255, green: 216/255, blue: 230/255))
+                                .frame(width: 190, height: 90)
+                            VStack(alignment: .center)
+                            {
+                                Text(name)
+                                    .font(.system(size: 40))
+                                
+                               
+                            }
                         }
                         ZStack{
                             RoundedRectangle(cornerRadius: 25)
-                                .fill( Color(red: 155/255, green: 100/255, blue: 200/255))
+                                .fill( Color(red: 100/255, green: 170/255, blue: 216/255))
                                 .frame(width: 200, height: 100)
+                            RoundedRectangle(cornerRadius: 25)
+                                .fill( Color(red: 173/255, green: 216/255, blue: 230/255))
+                                .frame(width: 190, height: 90)
+                            Text("No. #\(dexid)")
+                                .font(.system(size: 30))
+                                .fontWidth(.expanded)
                         }
                         
                     }
@@ -54,18 +70,10 @@ struct PokemonDisplay: View {
                     
                     Spacer()
                         .frame(width: 290, height: 6)
-                    VStack(alignment: .center)
-                            {
-                                Text(name)
-                                    .font(.system(size: 40))
-                                    
-                                Text("The (species) pokemon")
-                                    .font(.system(size: 20))
+                    
                                 
-                                Text("No. #\(dexid)")
-                                    .font(.system(size: 30))
-                                    .fontWidth(.expanded)
-                            }
+                                
+                            
                     Spacer()
                         .frame(width: 290, height: 6)
 
@@ -79,6 +87,10 @@ struct PokemonDisplay: View {
                     .frame(width: 350, height: 350)
                     .background()
                     .border(.black)
+                    Rectangle()
+                        .frame(width: 290, height: 6)
+                        
+                    Text("(Species) Pokemon")
                     
                     Rectangle()
                         .frame(width: 290, height: 6)
@@ -112,6 +124,7 @@ struct PokemonDisplay: View {
                     Rectangle()
                             .frame(width: 290, height: 6)
                     Spacer()
+                    Text("Lorem Ispur dor Ismut. Lorem DIsput lore is mutt, quick brown fox big fox wuick log jumps high over the quick brown fox")
 
             }
                 .frame(width: .infinity, height: .infinity)
