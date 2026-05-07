@@ -9,9 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var text: String = ""
+    @State private var dexNum: Int = 1
     
     var body: some View {
-        VStack {
+        VStack (spacing: 20) {
             HStack {
                 TextField("   Enter Pokèmon Dex Num", text: $text)
                     .padding(.horizontal, 40)
@@ -29,13 +30,29 @@ struct ContentView: View {
                 Spacer()
             }
             .padding().padding(.top, 30)
-            //Image
-            //Basic Info
-            //Dex entry
-            //back and next button
+            PokemonDisplay()
+            HStack (spacing: 20){
+                Button {
+                    dexNum -= 1
+                    if dexNum < 1 {
+                        dexNum = 1025
+                    }
+                } label: {
+                    Label("", systemImage: "arrowshape.left.fill")
+                    
+                }
+                Button {
+                    dexNum += 1
+                    if dexNum > 1025 {
+                        dexNum = 1
+                    }
+                } label: {
+                    Label("", systemImage: "arrowshape.right.fill")
+                }
+            }
+            .background(.gray)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         }
-        .background(.gray)
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
     }
 }
 
