@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(DataManager.self)private var data
     @State private var text: String = ""
     @State private var dexNum: Int = 1
     
