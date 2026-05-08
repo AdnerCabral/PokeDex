@@ -33,119 +33,126 @@ struct PokemonDisplay: View {
     var name: String
     var height: Int
     var weight: Int
-//    enum PokemonType {
-//        case fire
-//        case water
-//        case air
-//        case ground
-//        case rock
-//        
-//    }
-//    var firstType: PokemonType
-//    var secondType: PokemonType
-  /*   var sprite: [MTLType]
-    var forms: [MTLType]
-    var abilities: [MTLType]
-    var stats: [MTLType]
-    var types: [MTLType]
-    var moves: [MTLType]
-    var species: [MTLType] */
+    //    enum PokemonType {
+    //        case fire
+    //        case water
+    //        case air
+    //        case ground
+    //        case rock
+    //
+    //    }
+    //    var firstType: PokemonType
+    //    var secondType: PokemonType
+    /*   var sprite: [MTLType]
+     var forms: [MTLType]
+     var abilities: [MTLType]
+     var stats: [MTLType]
+     var types: [MTLType]
+     var moves: [MTLType]
+     var species: [MTLType] */
     
     var body: some View {
         
-           // ZStack{
-                
-                VStack(alignment: .center)
-                {
-                    HStack{
-                        Spacer()
-                        ZStack{
-                            rectangleboxpull(colour1: blue, colour2: lightblue, width1: 210, tall1: 90, width2: 200, tall2: 90)
-                            VStack(alignment: .center)
-                            {
-                                Text(name)
-                                    .font(.system(size: 30))
-                                
-                               
-                            }
-                        }
-                        
-                        ZStack{
-                            rectangleboxpull(colour1: blue, colour2: lightblue, width1: 150, tall1: 90, width2: 140, tall2: 90)
-                                .frame(width: 140, height: 90)
-                            Text("No. #\(dexid)")
-                                .font(.system(size: 25))
-                                .fontWidth(.expanded)
-                        }
-                        Spacer()
-                    }
-                    
-                    
+        // ZStack{
+        ZStack{
+            RoundedRectangle(cornerRadius: 25)
+                .fill(blue)
+                .frame(width: 380, height: 820)
+            VStack(alignment: .center)
+            {
+                Spacer()
+                    .frame(height: 12)
+                HStack{
                     Spacer()
-                        .frame(width: 290, height: 6)
-                    
-                                
-                                
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 25)
+                            .foregroundStyle(lightblue)
+                            .frame(width: 200, height: 90)
+                        VStack(alignment: .center)
+                        {
+                            Text(name)
+                                .font(.system(size: 30))
                             
-                    Spacer()
-                        .frame(width: 290, height: 6)
-
+                            
+                        }
+                    }
                     
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 25)
+                            .foregroundStyle(lightblue)
+                            .frame(width: 150, height: 90)
+                        Text("No. #\(dexid)")
+                            .font(.system(size: 30))
+                            
+                    }
+                    Spacer()
+                }
+                
+                
+                Spacer()
+                    .frame(width: 290, height: 14)
+                
+                
+                
+                
+                
+                
+                
                 ZStack
-                    {
-                        rectangleboxpull(colour1: blue, colour2: lightblue, width1: 360, tall1: 360, width2: 350, tall2: 350)
-                        Text("Image Go Here")
-                    }
-                    
-                    
-                    Rectangle()
-                        .frame(width: 290, height: 6)
-                        
-                    Text("(Species) Pokemon")
-                    
-                    Rectangle()
-                        .frame(width: 290, height: 6)
-                        
-                    Text("Type Go Here")
-                        
-                    
-                    Rectangle()
-                        .frame(width: 290, height: 6)
-                    
-                    Text("Abilties")
-                    HStack{
-                        Text("67")
-                        Spacer()
-                            .frame(width:25)
-                        Text("67")
-                    }
-                    HStack{
-                        Text("67")
-                        Spacer()
-                            .frame(width:25)
-                        Text("67")
-                    }
-                    Rectangle()
-                        .frame(width: 290, height: 6)
-                    HStack{
-                        Text("Wieght: Go Here")
-                        Spacer()
-                            .frame(width:25)
-                        Text("Height: Go Here")
-                    }
-                    Rectangle()
-                            .frame(width: 290, height: 6)
+                {
+                    RoundedRectangle(cornerRadius: 25)
+                        .foregroundStyle(lightblue)
+                        .frame(width: 350, height: 350)
+                    Text("Image Go Here")
+                }
+                
+                Divider()
+                
+                
+                Text("(Species) Pokemon")
+                
+                Divider()
+                
+                Text("Type Go Here")
+                
+                
+                Divider()
+                
+                Text("Abilties")
+                HStack{
+                    Text("67")
                     Spacer()
-                    Text("Lorem Ispur dor Ismut. Lorem DIsput lore is mutt, quick brown fox big fox wuick log jumps high over the quick brown fox")
-
+                        .frame(width:25)
+                    Text("67")
+                }
+                HStack{
+                    Text("67")
+                    Spacer()
+                        .frame(width:25)
+                    Text("67")
+                }
+                Divider()
+                HStack{
+                    Text("Wieght: Go Here")
+                    Divider()
+                    Text("Height: Go Here")
+                }
+                Divider()
+                Text("Lorem Ispur dor Ismut. Lorem DIsput lore is mutt, quick brown fox big fox wuick log jumps high over the quick brown fox")
+                    .frame(width: 350,height: 130)
+                    .border(.black)
+                Spacer()
+                    .frame(height: 12)
             }
-                .frame(width: .infinity, height: .infinity)
-//        }
-//        .frame(width: 350, height: 800)
-        .background(Color(.darkGray))
-//        .border(.black)
-        
+            .frame(width: .infinity, height: .infinity)
+            //        }
+            //        .frame(width: 350, height: 800)
+            
+            //        .border(.black)
+            
+        }
     }
+    
 }
 
 #Preview {
