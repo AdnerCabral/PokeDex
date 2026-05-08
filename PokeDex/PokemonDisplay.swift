@@ -6,6 +6,26 @@
 //
 import SwiftUI
 
+var lightblue = Color(red: 173/255, green: 216/255, blue: 230/255)
+var blue = Color(red: 100/255, green: 170/255, blue: 216/255)
+struct rectangleboxpull: View {
+
+    var colour1: Color
+    var colour2: Color
+    var width1: CGFloat
+    var tall1: CGFloat
+    var width2: CGFloat
+    var tall2: CGFloat
+    
+    var body: some View {
+        RoundedRectangle(cornerRadius: 25)
+            .fill(colour1)
+            .frame(width: width1, height: tall1)
+        RoundedRectangle(cornerRadius: 25)
+            .fill(colour2)
+            .frame(width: width2, height: tall2)
+    }
+}
 struct PokemonDisplay: View {
     //@Environment(DataManager.self)private var data
     
@@ -38,33 +58,26 @@ struct PokemonDisplay: View {
                 VStack(alignment: .center)
                 {
                     HStack{
+                        Spacer()
                         ZStack{
-                            RoundedRectangle(cornerRadius: 25)
-                                .fill( Color(red: 100/255, green: 170/255, blue: 216/255))
-                                .frame(width: 200, height: 100)
-                            RoundedRectangle(cornerRadius: 25)
-                                .fill( Color(red: 173/255, green: 216/255, blue: 230/255))
-                                .frame(width: 190, height: 90)
+                            rectangleboxpull(colour1: blue, colour2: lightblue, width1: 210, tall1: 90, width2: 200, tall2: 90)
                             VStack(alignment: .center)
                             {
                                 Text(name)
-                                    .font(.system(size: 40))
+                                    .font(.system(size: 30))
                                 
                                
                             }
                         }
+                        
                         ZStack{
-                            RoundedRectangle(cornerRadius: 25)
-                                .fill( Color(red: 100/255, green: 170/255, blue: 216/255))
-                                .frame(width: 200, height: 100)
-                            RoundedRectangle(cornerRadius: 25)
-                                .fill( Color(red: 173/255, green: 216/255, blue: 230/255))
-                                .frame(width: 190, height: 90)
+                            rectangleboxpull(colour1: blue, colour2: lightblue, width1: 150, tall1: 90, width2: 140, tall2: 90)
+                                .frame(width: 140, height: 90)
                             Text("No. #\(dexid)")
-                                .font(.system(size: 30))
+                                .font(.system(size: 25))
                                 .fontWidth(.expanded)
                         }
-                        
+                        Spacer()
                     }
                     
                     
@@ -80,13 +93,11 @@ struct PokemonDisplay: View {
                     
                 ZStack
                     {
-                    Color(.lightGray)
-                        .ignoresSafeArea()
-                    Text("Image Go Here")
+                        rectangleboxpull(colour1: blue, colour2: lightblue, width1: 360, tall1: 360, width2: 350, tall2: 350)
+                        Text("Image Go Here")
                     }
-                    .frame(width: 350, height: 350)
-                    .background()
-                    .border(.black)
+                    
+                    
                     Rectangle()
                         .frame(width: 290, height: 6)
                         
@@ -100,6 +111,7 @@ struct PokemonDisplay: View {
                     
                     Rectangle()
                         .frame(width: 290, height: 6)
+                    
                     Text("Abilties")
                     HStack{
                         Text("67")
@@ -138,5 +150,7 @@ struct PokemonDisplay: View {
 
 #Preview {
     //PokemonDisplay(dexid: 67, name: "Galarian Darmanitan (Zen Form)", height: 67, weight: 67)
-    PokemonDisplay(dexid: 151, name: "Mew", height: 67, weight: 67)
+    PokemonDisplay(dexid: 151, name: "Togedemaru", height: 67, weight: 67)
 }
+
+
