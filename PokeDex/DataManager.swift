@@ -17,8 +17,8 @@ class DataManager: ObservableObject {
     private var pokemon: [PokemonInfo] = []
     private(set) var searchResults: [PokemonInfo] = []
     
-    func fetchPokemon(id: String) async {
-        let urlStr: String = "https://pokeapi.co\(id.lowercased())"
+    func fetchPokemon(id: Int) async {
+        let urlStr: String = "https://pokeapi.co/api/v2/pokemon/\(String(id).lowercased())"
         let url: URL? = URL(string: urlStr)
         guard let urlUnwrapped = url else {
             return
@@ -42,7 +42,7 @@ class DataManager: ObservableObject {
             lastQuery = query
             searchResults = []
         }
-        let urlStr: String = "https://pokeapi.co\(query.lowercased())"
+        let urlStr: String = "https://pokeapi.co/api/v2/pokemon/\(query.lowercased())"
         let url: URL? = URL(string: urlStr)
         guard let urlUnwrapped = url else {
             return

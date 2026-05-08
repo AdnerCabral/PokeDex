@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @Environment(DataManager.self)private var data
     @State private var text: String = ""
-    @State private var dexNum: Int = 1
+    @State var dexNum: Int = 1
     
     var body: some View {
         VStack (spacing: 20) {
@@ -28,16 +28,20 @@ struct ContentView: View {
                                 .padding(.leading, 16)
                         }
                     )
+                    .onSubmit {
+                        data.searchPokemon(query: text)
+                    }
                 Spacer()
             }
             .padding().padding(.top, 30)
-            PokemonDisplay()
+            //PokemonDisplay()
             HStack (spacing: 20){
                 Button {
                     dexNum -= 1
                     if dexNum < 1 {
                         dexNum = 1025
                     }
+                    data.fetchPokemon(id: dexNum)
                 } label: {
                     Label("", systemImage: "arrowshape.left.fill")
                     
@@ -47,6 +51,7 @@ struct ContentView: View {
                     if dexNum > 1025 {
                         dexNum = 1
                     }
+                    data.fetchPokemon(id: dexNum)
                 } label: {
                     Label("", systemImage: "arrowshape.right.fill")
                 }
