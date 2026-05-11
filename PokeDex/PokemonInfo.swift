@@ -32,7 +32,6 @@ struct SpriteType: Codable {
 
 struct FormType: Codable {
     var name: String
-    var url: String
 }
 
 struct AbilityType: Codable {
@@ -42,7 +41,6 @@ struct AbilityType: Codable {
 
 struct AbilitySpec: Codable {
     var name: String
-    var url: String
 }
 
 struct StatTyoe: Codable {
@@ -51,12 +49,10 @@ struct StatTyoe: Codable {
 
 struct StatSpec: Codable {
     var name: String
-    var url: String
 }
 
 struct TypeType: Codable {
     var name: String
-    var url: String
 }
 
 struct MoveType: Codable {
@@ -65,10 +61,8 @@ struct MoveType: Codable {
 
 struct MoveSpec: Codable {
     var name: String
-    var url: String
 }
 
 struct SpeciesType: Codable {
     var name: String
-    var url: String
 }
