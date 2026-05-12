@@ -10,14 +10,21 @@ var lightblue = Color(red: 173/255, green: 216/255, blue: 230/255)
 var blue = Color(red: 100/255, green: 170/255, blue: 216/255)
 struct PokemonDisplay: View {
     //@Environment(DataManager.self)private var data
-    
-    var dexid: Int
     var name: String
-    var height: Int
-    var weight: Int
+    var dexid: Int
+    var species: String
+    var types: [String]
     var abilties: [String]
+    var weight: Int
+    var height: Int
+    var sprite: String
+    var shinySprite: String
+    var description: String
+    
+    
     
     var body: some View {
+        @State var isShiny: Bool = false
         ScrollView{
             ZStack
             {
@@ -70,17 +77,38 @@ struct PokemonDisplay: View {
                         RoundedRectangle(cornerRadius: 25)
                             .foregroundStyle(lightblue)
                             .frame(width: 350, height: 350)
-                        Text("Image Go Here")
+                        Button(action: {
+                            withAnimation
+                            {
+                                isShiny = !isShiny
+                            }
+                        })
+                        {
+                            if isShiny
+                            {
+                                AsyncImage(url: URL(string: shinySprite))
+                            }
+                            else
+                            {
+                                AsyncImage(url: URL(string: sprite))
+                            }
+                        }
+                            
                     }
                     
                     Divider()
                     
                     
-                    Text("(Species) Pokemon")
+                    Text("\(species) Pokemon")
                     
                     Divider()
                     
-                    Text("Type Go Here")
+                    HStack{
+                        ForEach(types, id: \.self) { item in
+                            Text(item)
+                            
+                            
+                        }}
                     
                     Divider()
                     
@@ -96,14 +124,14 @@ struct PokemonDisplay: View {
                     
                     HStack
                     {
-                        Text("Wieght: Go Here")
+                        Text("Weight: \(weight) kg")
                         Divider()
-                        Text("Height: Go Here")
+                        Text("Height: \(height) meters")
                     }
                     
                     Divider()
                     
-                    Text("Lorem Ispur dor Ismut. Lorem DIsput lore is mutt, quick brown fox big fox wuick log jumps high over the quick brown foxLorem Ispur dor Ismut. Lorem DIsput lore is mutt, quick brown fox big fox wuick log jumps high over the quick brown fox")
+                    Text(description)
                         .frame(width: 370, height: 200)
                     Spacer()
                         .frame(height: 12)
@@ -116,7 +144,7 @@ struct PokemonDisplay: View {
 }
 
 #Preview {
-    PokemonDisplay(dexid: 151, name: "Togedemaru", height: 67, weight: 67, abilties: ["Flash Fire","Drought", "Wonderguard"])
+    PokemonDisplay( name: "Ava", dexid: 67, species: "Not a", types: ["Fire"], abilties: ["I dunno","Be real"], weight: 700, height: 2, sprite: "nuh uh", shinySprite: "nuh uh", description: "Ava from real life")
 }
 
 
