@@ -47,6 +47,7 @@ class DataManager: ObservableObject {
         guard let urlUnwrapped = url else {
             return
         }
+        
         do {
             let (data, _) = try await URLSession.shared.data(from: urlUnwrapped)
             let details: PokeResponse = try JSONDecoder().decode(PokeResponse.self, from: data)
