@@ -10,11 +10,16 @@ import SwiftUI
 struct ContentView: View {
     @Environment(DataManager.self)private var data
     @State private var text: String = ""
-    @State private var dexNum: Int = 1
     @State private var name: String = ""
-    @State private var height: Int = 0
-    @State private var weight: Int = 0
+    @State private var dexNum: Int = 1
+    @State private var species: String = ""
+    @State private var types: [String] = []
     @State private var abilities: [String] = []
+    @State private var weight: Int = 0
+    @State private var height: Int = 0
+    @State private var sprite: String = ""
+    @State private var shinySprite: String = ""
+    @State private var desc: String = ""
     
     var body: some View {
         VStack (spacing: 20) {
@@ -40,7 +45,7 @@ struct ContentView: View {
                 Spacer()
             }
             .padding().padding(.top, 30)
-            PokemonDisplay(dexid: <#T##Int#>, name: <#T##String#>, height: <#T##Int#>, weight: <#T##Int#>, abilties: <#T##[String]#>)
+            PokemonDisplay(name: name, dexid: dexNum, species: species, types: types, abilties: abilities, weight: weight, height: height, sprite: sprite, shinySprite: shinySprite, description: desc)
             HStack (spacing: 20){
                 Button {
                     dexNum -= 1
