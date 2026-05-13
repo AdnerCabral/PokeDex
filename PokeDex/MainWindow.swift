@@ -41,6 +41,7 @@ struct ContentView: View {
                         Task {
                             await data.searchPokemon(query: text)
                         }
+                        //Add var changes
                     }
                 Spacer()
             }
@@ -71,8 +72,7 @@ struct ContentView: View {
                     Label("", systemImage: "arrowshape.right.fill")
                 }
             }
-            .background(.gray)
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
         }
     }
 }
