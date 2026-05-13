@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct PokeDexApp: App {
+    @State private var dataManager = DataManager()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(dataManager)
         }
     }
 }

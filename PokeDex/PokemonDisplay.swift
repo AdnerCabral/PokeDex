@@ -22,7 +22,6 @@ struct PokemonDisplay: View {
     var description: String
     
     
-    
     var body: some View {
         @State var isShiny: Bool = false
         ScrollView{
