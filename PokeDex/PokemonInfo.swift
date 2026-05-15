@@ -16,13 +16,13 @@ struct PokemonInfo: Identifiable, Codable {
     var name: String
     var height: Int
     var weight: Int
-    var sprite: [SpriteType]
+    var sprites: SpriteType
     var forms: [FormType]
     var abilities: [AbilityType]
-    var stats: [StatTyoe]
+    var stats: [StatType]
     var types: [TypeType]
     var moves: [MoveType]
-    var species: [SpeciesType]
+    var species: SpeciesType
 }
 
 struct SpriteType: Codable {
@@ -43,7 +43,7 @@ struct AbilitySpec: Codable {
     var name: String
 }
 
-struct StatTyoe: Codable {
+struct StatType: Codable {
     var stat: StatSpec
 }
 
@@ -52,8 +52,16 @@ struct StatSpec: Codable {
 }
 
 struct TypeType: Codable {
-    var name: String
+    var slot: Int
+    var type: DetailType 
 }
+
+// Represents the nested "type" object containing the name
+struct DetailType: Codable {
+    var name: String
+    var url: String
+}
+
 
 struct MoveType: Codable {
     var move: MoveSpec

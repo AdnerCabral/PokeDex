@@ -48,7 +48,7 @@ class DataManager: ObservableObject {
             let (data, _) = try await URLSession.shared.data(from: urlUnwrapped)
             let details = try JSONDecoder().decode(PokemonInfo.self, from: data)
             //FIX IMMIDIATELY
-//            searchResults.id.append(details.id)
+            searchResults.append(details)
         } catch let error {
             print(error)
         }
