@@ -25,12 +25,8 @@ class DataManager: ObservableObject {
         }
         do {
             let (data, _) = try await URLSession.shared.data(from: urlUnwrapped)
-            if let decodedResponse = try? JSONDecoder().decode(PokeResponse.self, from: data) {
-                DispatchQueue.main.async {
-                    for mon in decodedResponse.results {
-                        self.pokemon.append(mon)
-                    }
-                }
+            if let decodedResponse = try? JSONDecoder().decode(PokemonInfo.self, from: data) {
+                        self.pokemon.append(decodedResponse)
             }
         } catch let error {
             print(error)
@@ -50,8 +46,9 @@ class DataManager: ObservableObject {
         
         do {
             let (data, _) = try await URLSession.shared.data(from: urlUnwrapped)
-            let details: PokeResponse = try JSONDecoder().decode(PokeResponse.self, from: data)
-            searchResults.append(contentsOf: details.results)
+            let details = try JSONDecoder().decode(PokemonInfo.self, from: data)
+            //FIX IMMIDIATELY
+//            searchResults.id.append(details.id)
         } catch let error {
             print(error)
         }

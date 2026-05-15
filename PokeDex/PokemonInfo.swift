@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct PokeResponse: Codable{
-    var results: [PokemonInfo]
-}
+//struct PokeResponse: Codable{
+//    var results: [PokemonInfo]
+//}
 
 struct PokemonInfo: Identifiable, Codable {
     var id: Int
