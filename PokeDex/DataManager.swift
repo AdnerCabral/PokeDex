@@ -8,11 +8,10 @@
 import SwiftUI
 import Combine
 
-// Changed from struct to class so it can hold and update data
 @Observable
 class DataManager: ObservableObject {
     private(set) var lastQuery = ""
-
+    var currentPokemon: PokemonInfo?
     
     private var pokemon: [PokemonInfo] = []
     private(set) var searchResults: [PokemonInfo] = []
@@ -27,6 +26,8 @@ class DataManager: ObservableObject {
             let (data, _) = try await URLSession.shared.data(from: urlUnwrapped)
             if let decodedResponse = try? JSONDecoder().decode(PokemonInfo.self, from: data) {
                         self.pokemon.append(decodedResponse)
+                        self.currentPokemon = decodedResponse
+
             }
         } catch let error {
             print(error)
@@ -48,7 +49,9 @@ class DataManager: ObservableObject {
             let (data, _) = try await URLSession.shared.data(from: urlUnwrapped)
             let details = try JSONDecoder().decode(PokemonInfo.self, from: data)
             //FIX IMMIDIATELY
-            searchResults.append(details)
+//            searchResults.append(details)
+            self.currentPokemon = details
+
         } catch let error {
             print(error)
         }

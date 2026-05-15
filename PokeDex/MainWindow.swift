@@ -40,8 +40,8 @@ struct ContentView: View {
                     .onSubmit {
                         Task {
                             await data.searchPokemon(query: text)
+                            updateUI()
                         }
-                        //Add var changes
                     }
                 Spacer()
             }
@@ -55,6 +55,7 @@ struct ContentView: View {
                     }
                     Task{
                         await data.fetchPokemon(id: dexNum)
+                        updateUI()
                     }
                 } label: {
                     Label("", systemImage: "arrowshape.left.fill")
@@ -67,6 +68,7 @@ struct ContentView: View {
                     }
                     Task{
                         await data.fetchPokemon(id: dexNum)
+                        updateUI()
                     }
                 } label: {
                     Label("", systemImage: "arrowshape.right.fill")
@@ -74,8 +76,28 @@ struct ContentView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
         }
+        
+        
     }
+    private func updateUI() {
+           guard let current = data.currentPokemon else { return }
+           
+           self.name = current.name
+           self.dexNum = current.id
+           self.weight = current.weight
+           self.height = current.height
+           
+           self.sprite = current.sprites.front_default ?? ""
+           self.shinySprite = current.sprites.front_shiny ?? ""
+           
+           self.types = current.types.map { $0.type.name }
+           
+           self.abilities = current.abilities.map { $0.ability.name }
+           
+           self.species = current.name
+       }
 }
+
 
 #Preview {
     ContentView()
