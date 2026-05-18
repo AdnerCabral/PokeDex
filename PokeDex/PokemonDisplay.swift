@@ -91,7 +91,7 @@ struct PokemonDisplay: View {
                             }
                             else
                             {
-                                AsyncImage(url: URL(string: sprite), scale: 3.0)
+                                AsyncImage(url: URL(string: sprite), scale: 0.3)
                                     
                             }
                         }
