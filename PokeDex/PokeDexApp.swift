@@ -12,7 +12,7 @@ struct PokeDexApp: App {
     @State private var dataManager = DataManager()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Home()
                 .environment(dataManager)
         }
     }
