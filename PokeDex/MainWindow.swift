@@ -74,7 +74,7 @@ struct ContentView: View {
                     Label("", systemImage: "arrowshape.right.fill")
                 }
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+            .frame(maxWidth: .infinity, maxHeight: 50, alignment: .bottom)
         }
         
         
