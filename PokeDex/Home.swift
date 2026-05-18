@@ -12,11 +12,16 @@ struct Home: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 30) {
+                Spacer()
+
                 Text("PokéMenu")
                     .font(.system(size: 40, weight: .bold, design: .rounded))
                     .padding(.top, 50)
                 
-                Spacer()
+                Image("dexicon")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 200, height: 200)
                 
                 NavigationLink(value: "goToDex") {
                     Text("Go to Dex")

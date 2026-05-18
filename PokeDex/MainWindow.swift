@@ -20,11 +20,12 @@ struct ContentView: View {
     @State private var sprite: String = ""
     @State private var shinySprite: String = ""
     @State private var desc: String = ""
+
     
     var body: some View {
         VStack (spacing: 20) {
             HStack {
-                TextField("   Enter Pokèmon Dex Num", text: $text)
+                TextField("Enter Pokèmon Name", text: $text)
                     .padding(.horizontal, 40)
                     .background(Color(#colorLiteral(red: 0.9294475317, green: 0.9239223003, blue: 0.9336946607, alpha: 1)))
                     .clipped()
@@ -37,12 +38,13 @@ struct ContentView: View {
                                 .padding(.leading, 16)
                         }
                     )
-                    .onSubmit {
+                    .onChange(of: text) { oldValue, newValue in
                         Task {
-                            await data.searchPokemon(query: text)
+                            await data.searchPokemon(query: newValue)
                             updateUI()
                         }
                     }
+                    .autocorrectionDisabled(true)
                 Spacer()
             }
             .padding().padding(.top, 30)

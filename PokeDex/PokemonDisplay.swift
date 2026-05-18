@@ -108,16 +108,14 @@ struct PokemonDisplay: View {
                     Divider()
                     
                     
-                    Text("\(species.capitalized) Pokemon")
-                    
-                    Divider()
-                    
+                                        
                     HStack{
                         ForEach(types, id: \.self) { item in
                             Text(item.capitalized)
                             
                             
                         }}
+                    Text("Type")
                     
                     Divider()
                     
