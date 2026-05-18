@@ -9,6 +9,7 @@ import SwiftUI
 var lightblue = Color(red: 173/255, green: 216/255, blue: 230/255)
 var blue = Color(red: 100/255, green: 170/255, blue: 216/255)
 struct PokemonDisplay: View {
+    @State var isShiny: Bool = false
     //@Environment(DataManager.self)private var data
     var name: String
     var dexid: Int
@@ -23,7 +24,7 @@ struct PokemonDisplay: View {
     
     
     var body: some View {
-        @State var isShiny: Bool = false
+
         ScrollView{
             ZStack
             {
@@ -76,25 +77,31 @@ struct PokemonDisplay: View {
                         RoundedRectangle(cornerRadius: 25)
                             .foregroundStyle(lightblue)
                             .frame(width: 350, height: 350)
-                        Button(action: {
-                            withAnimation
-                            {
-                                isShiny = !isShiny
-                            }
-                        })
+                        if isShiny == true
                         {
-                            if isShiny
-                            {
-                                AsyncImage(url: URL(string: shinySprite), scale: 3.0)
+                            let _ = print(shinySprite)
+                            AsyncImage(url: URL(string: shinySprite), scale: 2.0)
+                                .onTapGesture {
+                                    withAnimation {
+                                        isShiny = !isShiny
+                                    }
+                                }
+                                
                                     
-                                        
-                            }
-                            else
-                            {
-                                AsyncImage(url: URL(string: sprite), scale: 0.3)
-                                    
-                            }
                         }
+                        else
+                        {
+                            let _ = print(sprite)
+                            AsyncImage(url: URL(string: sprite), scale: 2.0)
+                                .onTapGesture {
+                                    withAnimation {
+                                        isShiny = !isShiny
+                                    }
+                                }
+                                
+                        }
+
+                
                             
                     }
                     

@@ -26,6 +26,18 @@ struct PokemonInfo: Identifiable, Codable {
 }
 
 struct SpriteType: Codable {
+    var other: OA
+}
+
+struct OA: Codable {
+    var officialartwork: Artwork
+    
+    enum CodingKeys: String, CodingKey {
+        case officialartwork = "official-artwork"
+    }
+}
+
+struct Artwork: Codable {
     var front_default: String
     var front_shiny: String
 }

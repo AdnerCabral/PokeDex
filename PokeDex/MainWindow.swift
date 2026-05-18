@@ -87,8 +87,8 @@ struct ContentView: View {
            self.weight = current.weight
            self.height = current.height
            
-           self.sprite = current.sprites.front_default ?? ""
-           self.shinySprite = current.sprites.front_shiny ?? ""
+        self.sprite = current.sprites.other.officialartwork.front_default
+        self.shinySprite = current.sprites.other.officialartwork.front_shiny
            
            self.types = current.types.map { $0.type.name }
            

@@ -31,7 +31,7 @@ struct Home: View {
                 
                 Spacer()
             }
-            .background(Color(Color(red: 0.1, green: 0.1, blue: 0.1)))
+            .background(Color(Color(red: 0.5294, green: 0.8275, blue: 1)))
             .navigationTitle("")
             .navigationDestination(for: String.self) { destination in
                 if destination == "goToDex" {
