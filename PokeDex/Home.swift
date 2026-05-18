@@ -12,7 +12,7 @@ struct Home: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 30) {
-                Text("🔴 PokéMenu")
+                Text("PokéMenu")
                     .font(.system(size: 40, weight: .bold, design: .rounded))
                     .padding(.top, 50)
                 
@@ -31,7 +31,8 @@ struct Home: View {
                 
                 Spacer()
             }
-            .navigationTitle("Main Menu")
+            .background(Color(Color(red: 0.1, green: 0.1, blue: 0.1)))
+            .navigationTitle("")
             .navigationDestination(for: String.self) { destination in
                 if destination == "goToDex" {
                     ContentView()
