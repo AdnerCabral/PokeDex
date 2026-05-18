@@ -49,7 +49,7 @@ struct PokemonDisplay: View {
                                 .frame(width: 200, height: 90)
                             VStack(alignment: .center)
                             {
-                                Text(name)
+                                Text(name.capitalized)
                                     .font(.system(size: 30))
                             }
                         }
@@ -85,11 +85,14 @@ struct PokemonDisplay: View {
                         {
                             if isShiny
                             {
-                                AsyncImage(url: URL(string: shinySprite))
+                                AsyncImage(url: URL(string: shinySprite), scale: 3.0)
+                                    
+                                        
                             }
                             else
                             {
-                                AsyncImage(url: URL(string: sprite))
+                                AsyncImage(url: URL(string: sprite), scale: 3.0)
+                                    
                             }
                         }
                             
@@ -98,13 +101,13 @@ struct PokemonDisplay: View {
                     Divider()
                     
                     
-                    Text("\(species) Pokemon")
+                    Text("\(species.capitalized) Pokemon")
                     
                     Divider()
                     
                     HStack{
                         ForEach(types, id: \.self) { item in
-                            Text(item)
+                            Text(item.capitalized)
                             
                             
                         }}
@@ -114,7 +117,7 @@ struct PokemonDisplay: View {
                     Text("Abilties")
                     HStack{
                         ForEach(abilties, id: \.self) { item in
-                            Text(item)
+                            Text(item.capitalized)
                             
                             
                         }}
@@ -143,7 +146,7 @@ struct PokemonDisplay: View {
 }
 
 #Preview {
-    PokemonDisplay( name: "Ava", dexid: 67, species: "Not a", types: ["Fire"], abilties: ["I dunno","Be real"], weight: 700, height: 2, sprite: "nuh uh", shinySprite: "nuh uh", description: "Ava from real life")
+    PokemonDisplay( name: "ava", dexid: 67, species: "not a", types: ["Fire"], abilties: ["I dunno","Be real"], weight: 700, height: 2, sprite: "nuh uh", shinySprite: "nuh uh", description: "Ava from real life")
 }
 
 
