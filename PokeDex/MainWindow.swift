@@ -47,7 +47,7 @@ struct ContentView: View {
                     .autocorrectionDisabled(true)
                 Spacer()
             }
-            .padding().padding(.top, 30)
+            .padding().padding(.top, 10)
             PokemonDisplay(name: name, dexid: dexNum, species: species, types: types, abilties: abilities, weight: weight, height: height, sprite: sprite, shinySprite: shinySprite, description: desc)
             HStack (spacing: 20){
                 Button {
@@ -76,7 +76,7 @@ struct ContentView: View {
                     Label("", systemImage: "arrowshape.right.fill")
                 }
             }
-            .frame(maxWidth: .infinity, maxHeight: 50, alignment: .bottom)
+            .frame(maxWidth: .infinity, maxHeight: 10, alignment: .bottom)
         }
         
         
